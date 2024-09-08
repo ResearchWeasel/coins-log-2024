@@ -1,0 +1,40 @@
+seed: 123456789
+device: cuda:0
+val_size: 0.01
+test_size: 0.02
+mini_batch_size: 256
+lr: 1.0e-4
+weight_decay: 1.0e-6
+val_patience: 50
+val_tolerance: 1.0e-4
+max_epochs: 70
+validation_freq: 7
+checkpoint_freq: 7000
+algorithm: q2b
+leiden_resolution: 2.0e-5
+coins_shared_relation_embedding: true
+loader_hpars:
+  dataset_name: nell
+  simulated: false
+  sample_source: smore
+  sampler_hpars:
+    query_structure:
+      - 1p
+      - 2p
+      - 3p
+      - 2i
+      - 3i
+      - 2i1p
+      - 1p2i
+    num_negative_samples: 128
+    num_neighbours: 10
+    random_walk_length: 10
+    context_radius: 2
+    pagerank_importances: true
+    walks_relation_specific: true
+embedder_hpars:
+  embedding_dim: 400
+link_ranker_hpars:
+  algorithm: q2b
+embedding_loss_hpars:
+  margin: 24.0
